@@ -4,10 +4,25 @@ const Signup = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <NavHome />
-        <div>
-          {/* Your signup form and related JSX goes here */}
-          <h1>Sign Up</h1>
-        </div>
+        <div className="flex min-h-screen bg-gray-50 justify-center items-center">
+          <div className="p-6 max-w-sm w-full bg-blue-50 shadow-md rounded-md">
+            <div className="mb-4">
+                <h1 className='text-center font-bold text-2xl text-blue-800'> 
+                  Sign Up 
+                </h1>
+            </div>
+            <div className="mt-10 text-center">
+              <button type="submit" className="w-full text-white bg-blue-800 hover:bg-blue-700 focus:ring-4 focus:ring-blue-800 font-medium rounded-md text-sm px-5 py-2.5 text-center">
+                Register as Interviewee
+              </button>
+            </div>
+            <div className="mt-10 text-center">
+              <button type="submit" className="w-full text-white bg-blue-800 hover:bg-blue-700 focus:ring-4 focus:ring-blue-800 font-medium rounded-md text-sm px-5 py-2.5 text-center">
+                Register as Interviewer
+              </button>
+            </div>
+          </div>
+        </div>    
     </div>
   );
 };
