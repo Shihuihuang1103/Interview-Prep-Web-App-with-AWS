@@ -1,7 +1,7 @@
 import React from 'react';
 import NavHome from '../components/navHome';
 
-
+//Signup Page: two options
 const Signup = () => {
   return (
     <div className="flex flex-col min-h-screen">
