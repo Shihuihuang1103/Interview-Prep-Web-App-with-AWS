@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import NavHome from './components/navHome';
 
+//Login Page
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
