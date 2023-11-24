@@ -14,13 +14,13 @@ const NavInterviewee = () => {
               </div>
               {/* Primary Nav */}
               <div className="hidden md:flex items-center space-x-1">
-                <a href="interviewee" className="py-5 px-3 text-white">Get Interviewed</a>
-                <a href="scheduled" className="py-5 px-3 text-white">Upcoming Interviews</a>
+                <Link href="/interviewee" className="py-5 px-3 text-white">Get Interviewed</Link>
+                <Link href="interviewee/scheduled" className="py-5 px-3 text-white">Upcoming Interviews</Link>
               </div>
             </div>
             {/* Secondary Nav */}
             <div className="hidden md:flex items-center space-x-1">
-              <Link href="profile" className="py-2 px-3 bg-blue-700 text-white rounded mr-2">Profile</Link>
+              <Link href="interviewee/profile" className="py-2 px-3 bg-blue-700 text-white rounded mr-2">Profile</Link>
         
             </div>
            
