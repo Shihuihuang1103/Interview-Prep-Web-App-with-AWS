@@ -8,13 +8,13 @@ const NavHome = () => {
             <div className="flex space-x-4">
               {/* Logo and brand name */}
               <div>
-                <a href="/" className="flex items-center py-5 px-2 text-white">
+                <a href="/home" className="flex items-center py-5 px-2 text-white">
                   <span className="font-semibold text-xl">InterviewXpert</span>
                 </a>
               </div>
               {/* Primary Nav */}
               <div className="hidden md:flex items-center space-x-1">
-                <a href="#" className="py-5 px-3 text-white">Home</a>
+                <a href="/home" className="py-5 px-3 text-white">Home</a>
                 <a href="#" className="py-5 px-3 text-white">Contact</a>
               </div>
             </div>
