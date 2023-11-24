@@ -1,0 +1,34 @@
+import Link from 'next/link';
+
+const NavInterviewee = () => {
+    return (
+      <nav className="bg-blue-800">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex justify-between">
+            <div className="flex space-x-4">
+              {/* Logo and brand name */}
+              <div>
+                <a href="/" className="flex items-center py-5 px-2 text-white">
+                  <span className="font-semibold text-xl">InterviewXpert</span>
+                </a>
+              </div>
+              {/* Primary Nav */}
+              <div className="hidden md:flex items-center space-x-1">
+                <a href="interviewee" className="py-5 px-3 text-white">Get Interviewed</a>
+                <a href="scheduled" className="py-5 px-3 text-white">Upcoming Interviews</a>
+              </div>
+            </div>
+            {/* Secondary Nav */}
+            <div className="hidden md:flex items-center space-x-1">
+              <Link href="profile" className="py-2 px-3 bg-blue-700 text-white rounded mr-2">Profile</Link>
+        
+            </div>
+           
+          </div>
+        </div>
+      </nav>
+    );
+  };
+  
+  export default NavInterviewee;
+  
