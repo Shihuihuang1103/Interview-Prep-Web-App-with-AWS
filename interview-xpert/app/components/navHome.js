@@ -14,7 +14,7 @@ const NavHome = () => {
               </div>
               {/* Primary Nav */}
               <div className="hidden md:flex items-center space-x-1">
-                <a href="#" className="py-5 px-3 text-white">About</a>
+                <a href="#" className="py-5 px-3 text-white">Home</a>
                 <a href="#" className="py-5 px-3 text-white">Contact</a>
               </div>
             </div>

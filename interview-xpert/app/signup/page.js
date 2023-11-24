@@ -1,5 +1,7 @@
 import React from 'react';
 import NavHome from '../components/navHome';
+
+
 const Signup = () => {
   return (
     <div className="flex flex-col min-h-screen">
@@ -12,15 +14,20 @@ const Signup = () => {
                 </h1>
             </div>
             <div className="mt-10 text-center">
-              <button type="submit" className="w-full text-white bg-blue-800 hover:bg-blue-700 focus:ring-4 focus:ring-blue-800 font-medium rounded-md text-sm px-5 py-2.5 text-center">
+              <a href="signup/interviewee" type="submit" className="w-full text-white bg-blue-800 hover:bg-blue-700 focus:ring-4 focus:ring-blue-800 font-medium rounded-md text-sm px-5 py-2.5 text-center">
                 Register as Interviewee
-              </button>
+              </a>
             </div>
             <div className="mt-10 text-center">
-              <button type="submit" className="w-full text-white bg-blue-800 hover:bg-blue-700 focus:ring-4 focus:ring-blue-800 font-medium rounded-md text-sm px-5 py-2.5 text-center">
+              <a href="signup/interviewer" type="submit" className="w-full text-white bg-blue-800 hover:bg-blue-700 focus:ring-4 focus:ring-blue-800 font-medium rounded-md text-sm px-5 py-2.5 text-center">
                 Register as Interviewer
-              </button>
+              </a>
             </div>
+            <div className="mt-4 text-center">
+            <a href="/" className="text-sm text-blue-800 hover:underline">
+              Already have an account? Login here
+            </a>
+          </div>
           </div>
         </div>    
     </div>
