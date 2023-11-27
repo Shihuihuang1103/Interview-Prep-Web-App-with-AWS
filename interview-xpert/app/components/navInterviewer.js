@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const NavHome = () => {
+const NavInterviewer = () => {
     return (
       <nav className="bg-blue-800">
         <div className="max-w-6xl mx-auto px-4">
@@ -14,15 +14,15 @@ const NavHome = () => {
               </div>
               {/* Primary Nav */}
               <div className="hidden md:flex items-center space-x-1">
-                <a href="/" className="py-5 px-3 text-white">Home</a>
-                <a href="#" className="py-5 px-3 text-white">Contact</a>
+                <Link href="/interviewer" className="py-5 px-3 text-white">Interview Request</Link>
+                <Link href="/interviewer/scheduled" className="py-5 px-3 text-white">Upcoming Interviews</Link>
+                <Link href="/interviewer/feedback" className="py-5 px-3 text-white">Feedback</Link>
               </div>
             </div>
             {/* Secondary Nav */}
             <div className="hidden md:flex items-center space-x-1">
-              <Link href="/login" className="py-2 px-3 bg-blue-700 text-white rounded mr-2">Login</Link>
-              
-              <Link href="/signup" className="py-2 px-3 bg-blue-700 text-white rounded">Sign Up</Link>
+              <Link href="/interviewer/profile" className="py-2 px-3 bg-blue-700 text-white rounded mr-2">Profile</Link>
+        
             </div>
            
           </div>
@@ -31,5 +31,4 @@ const NavHome = () => {
     );
   };
   
-  export default NavHome;
-  
+  export default NavInterviewer;

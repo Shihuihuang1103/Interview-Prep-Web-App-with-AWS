@@ -24,7 +24,7 @@ const Signup = () => {
               </a>
             </div>
             <div className="mt-4 text-center">
-            <a href="/" className="text-sm text-blue-800 hover:underline">
+            <a href="/login" className="text-sm text-blue-800 hover:underline">
               Already have an account? Login here
             </a>
           </div>
