@@ -43,6 +43,7 @@ const LoginPage = () => {
                 type="text"
                 id="username"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                style={{ paddingLeft: '5px' }} 
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
@@ -55,6 +56,7 @@ const LoginPage = () => {
                 type="password"
                 id="password"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                style={{ paddingLeft: '5px' }} 
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />

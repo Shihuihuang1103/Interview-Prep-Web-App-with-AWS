@@ -44,6 +44,7 @@ const SignupInterviewee = () => {
                   type="text"
                   id="firstname"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  style={{ paddingLeft: '5px' }} 
                   value={firstname}
                   onChange={(e) => setFirstname(e.target.value)}
                 />
@@ -55,6 +56,7 @@ const SignupInterviewee = () => {
                   type="text"
                   id="lastname"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  style={{ paddingLeft: '5px' }} 
                   value={lastname}
                   onChange={(e) => setLastname(e.target.value)}
                 />
@@ -66,6 +68,7 @@ const SignupInterviewee = () => {
                   type="text"
                   id="username"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  style={{ paddingLeft: '5px' }} 
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
@@ -78,6 +81,7 @@ const SignupInterviewee = () => {
                   type="text"
                   id="password"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  style={{ paddingLeft: '5px' }} 
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -90,6 +94,7 @@ const SignupInterviewee = () => {
                   type="text"
                   id="email"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  style={{ paddingLeft: '5px' }} 
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -102,6 +107,7 @@ const SignupInterviewee = () => {
                   type="text"
                   id="company"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  style={{ paddingLeft: '5px' }} 
                   value={company}
                   onChange={(e) => setCompany(e.target.value)}
                 />      
@@ -114,6 +120,7 @@ const SignupInterviewee = () => {
                   type="text"
                   id="role"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  style={{ paddingLeft: '5px' }} 
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
                 />   
@@ -126,6 +133,7 @@ const SignupInterviewee = () => {
                   type="text"
                   id="yoe"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  style={{ paddingLeft: '5px' }} 
                   value={yoe}
                   onChange={(e) => setYoe(e.target.value)}
                 />  
@@ -138,6 +146,7 @@ const SignupInterviewee = () => {
                   type="text"
                   id="bio"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  style={{ paddingLeft: '5px' }} 
                   value={bio}
                   onChange={(e) => setBio(e.target.value)}
                 />  

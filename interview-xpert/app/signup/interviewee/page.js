@@ -19,8 +19,40 @@ const SignupInterviewee = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // Implement your register logic here
-    console.log(username, password);
+
+    const intervieweeUser = {
+      firstname,
+      lastname,
+      username,
+      password,
+      email,
+      school,
+      field,
+      yoe,
+      bio,
+    };
+
+    const apiGatewayUrl = 'https://6lpyoj0hu8.execute-api.us-east-1.amazonaws.com/test/userRegistration';
+
+    try{
+      const response = await fetch(apiGatewayUrl, {
+        method:'POST',
+        mode:'cors',
+        headers:{
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(intervieweeUser),
+      });
+
+      if(!response.ok){
+        throw new Error('Network response was not ok.');
+      }
+
+      const data = await response.json();
+      console.log("Registration successful:", data);
+    } catch(error){
+      console.error('Registration failed', error);
+    }
   };
 
   return (
@@ -34,7 +66,7 @@ const SignupInterviewee = () => {
                 Sign up for your intereviewee account
               </h2>
             </div>
-            <form className="mt-8 space-y-6" action="#" method="POST">
+            <form className="mt-8 space-y-6">
               <input type="hidden" name="remember" value="true" />
               <div className="rounded-md shadow-sm -space-y-px">
                 <label htmlFor="firstname" className="block text-sm font-medium text-gray-700">
@@ -44,6 +76,7 @@ const SignupInterviewee = () => {
                   type="text"
                   id="firstname"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  style={{ paddingLeft: '5px' }} 
                   value={firstname}
                   onChange={(e) => setFirstname(e.target.value)}
                 />
@@ -55,6 +88,7 @@ const SignupInterviewee = () => {
                   type="text"
                   id="lastname"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  style={{ paddingLeft: '5px' }} 
                   value={lastname}
                   onChange={(e) => setLastname(e.target.value)}
                 />
@@ -66,6 +100,7 @@ const SignupInterviewee = () => {
                   type="text"
                   id="username"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  style={{ paddingLeft: '5px' }} 
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
@@ -78,6 +113,7 @@ const SignupInterviewee = () => {
                   type="text"
                   id="password"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  style={{ paddingLeft: '5px' }} 
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -90,6 +126,7 @@ const SignupInterviewee = () => {
                   type="text"
                   id="email"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  style={{ paddingLeft: '5px' }} 
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -102,6 +139,7 @@ const SignupInterviewee = () => {
                   type="text"
                   id="school"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  style={{ paddingLeft: '5px' }} 
                   value={school}
                   onChange={(e) => setSchool(e.target.value)}
                 />      
@@ -114,6 +152,7 @@ const SignupInterviewee = () => {
                   type="text"
                   id="field"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  style={{ paddingLeft: '5px' }} 
                   value={field}
                   onChange={(e) => setField(e.target.value)}
                 />   
@@ -126,6 +165,7 @@ const SignupInterviewee = () => {
                   type="text"
                   id="yoe"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  style={{ paddingLeft: '5px' }} 
                   value={yoe}
                   onChange={(e) => setYoe(e.target.value)}
                 />  
@@ -138,6 +178,7 @@ const SignupInterviewee = () => {
                   type="text"
                   id="bio"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  style={{ paddingLeft: '5px' }} 
                   value={bio}
                   onChange={(e) => setBio(e.target.value)}
                 />  
@@ -145,7 +186,7 @@ const SignupInterviewee = () => {
 
               
               <div>
-                <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-800 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <button onClick={handleSubmit} type="button" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-800 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   Register
                 </button>
               </div>

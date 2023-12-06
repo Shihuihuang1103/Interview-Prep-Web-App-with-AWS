@@ -34,6 +34,7 @@ const BookInterview = () => {
                             type="text"
                             id="focus"
                             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                            style={{ paddingLeft: '5px' }} 
                             value={focus}
                             onChange={(e) => setFocus(e.target.value)}
                         />
