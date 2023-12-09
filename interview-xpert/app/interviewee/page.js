@@ -27,17 +27,14 @@ const BookInterview = () => {
                             Schedule A New Interview 
                         </h1>
                         <br/>
-                        <label htmlFor="focus" className="block text-sm font-medium text-gray-700">
-                            Focus of Interview:
-                        </label>
-                        <input
-                            type="text"
-                            id="focus"
-                            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-                            style={{ paddingLeft: '5px' }} 
-                            value={focus}
-                            onChange={(e) => setFocus(e.target.value)}
-                        />
+                        <label for="focus" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
+                        <select id="focus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option selected>Choose your interview focus</option>
+                        <option value="Data Structure and Algorithm">Data Structure and Algorithm</option>
+                        <option value="System Design">System Design</option>
+                        <option value="Behavioral Questions">Behavioral Questions</option>
+                        <option value="Career Coaching">Career Coaching</option>
+                        </select>
                         </div>
                         <div className="mb-6">
                         <label htmlFor="date" className="block text-sm font-medium text-gray-700">
