@@ -32,7 +32,7 @@ const SignupInterviewee = () => {
       bio,
     };
 
-    const apiGatewayUrl = 'https://6lpyoj0hu8.execute-api.us-east-1.amazonaws.com/test/userRegistration';
+    const apiGatewayUrl = 'https://6lpyoj0hu8.execute-api.us-east-1.amazonaws.com/test/register/interviewees';
 
     try{
       const response = await fetch(apiGatewayUrl, {
