@@ -6,7 +6,7 @@ import NavHome from '@/app/components/navHome';
 import UserPool from "@/app/services/UserPool";
 
 
-const SignupInterviewee = () => {
+const SignupInterviewer = () => {
   const { push } = useRouter();
 
   const [firstname, setFirstname] = useState('');
@@ -18,8 +18,14 @@ const SignupInterviewee = () => {
   const [role, setRole] = useState('');
   const [yoe, setYoe] = useState('');
   const [bio, setBio] = useState('');
+  const [skills, setSkills] = useState([]);
 
-
+  const skillOptions = [
+    'Data Structure and Algorithm',
+    'System Design',
+    'Behavioral Questions',
+    'Career Coaching',
+  ];
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -46,9 +52,10 @@ const SignupInterviewee = () => {
       company,
       role,
       yoe,
+      skills,
       bio,
     };
-
+    console.log(skills);
     const apiGatewayUrl = 'https://6lpyoj0hu8.execute-api.us-east-1.amazonaws.com/test/register/interviewers';
 
     try{
@@ -188,6 +195,21 @@ const SignupInterviewee = () => {
                 />  
 
                 <br/>
+                <label htmlFor="skills" className="block text-sm font-medium text-gray-700">Skills: hold Ctrl button to select multiple</label>
+                    <select
+                        id="skills"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        multiple
+                        value={skills}
+                        onChange={(e) => setSkills(Array.from(e.target.selectedOptions, (option) => option.value))}
+                    >
+                        {skillOptions.map((skill, index) => (
+                            <option key={index} value={skill}>
+                                {skill}
+                            </option>
+                        ))}
+                    </select>
+                <br/>
                 <label htmlFor="bio" className="block text-sm font-medium text-gray-700">
                   About:
                 </label>
@@ -215,4 +237,4 @@ const SignupInterviewee = () => {
   );
 };
 
-export default SignupInterviewee;
+export default SignupInterviewer;
