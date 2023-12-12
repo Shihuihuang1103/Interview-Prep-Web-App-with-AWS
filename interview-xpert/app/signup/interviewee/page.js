@@ -7,7 +7,7 @@ import UserPool from "@/app/services/UserPool";
 
 const SignupInterviewee = () => {
   const { push } = useRouter();
-  //const router = useRouter();
+
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
   const [username, setUsername] = useState('');

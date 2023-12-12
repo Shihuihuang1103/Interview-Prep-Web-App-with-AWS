@@ -1,9 +1,13 @@
 "use client";
 import React from 'react';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import NavHome from '@/app/components/navHome';
+import UserPool from "@/app/services/UserPool";
+
 
 const SignupInterviewee = () => {
+  const { push } = useRouter();
 
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
@@ -19,8 +23,53 @@ const SignupInterviewee = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // Implement your register logic here
-    console.log(username, password);
+    const attributeList = [];
+    attributeList.push(
+      {Name:'email',Value:email},
+      {Name:'custom:Role', Value:'interviewer'}
+    )
+    UserPool.signUp(username,password,attributeList,null, (err, data)=>{
+       if(err){
+        console.error(err);
+       } 
+       console.log(data);
+       alert('Account created successfully. Redirecting to login page...');
+       push('/login');
+    });
+
+    const interviewerUser = {
+      firstname,
+      lastname,
+      username,
+      password,
+      email,
+      company,
+      role,
+      yoe,
+      bio,
+    };
+
+    const apiGatewayUrl = 'https://6lpyoj0hu8.execute-api.us-east-1.amazonaws.com/test/register/interviewers';
+
+    try{
+      const response = await fetch(apiGatewayUrl, {
+        method:'POST',
+        mode:'cors',
+        headers:{
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(interviewerUser),
+      });
+
+      if(!response.ok){
+        throw new Error('Network response was not ok.');
+      }
+
+      const data = await response.json();
+      console.log("Registration successful:", data);
+    } catch(error){
+      console.error('Registration failed', error);
+    }
   };
 
   return (
@@ -78,7 +127,7 @@ const SignupInterviewee = () => {
                   Password:
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   id="password"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                   style={{ paddingLeft: '5px' }} 
@@ -154,7 +203,7 @@ const SignupInterviewee = () => {
 
               
               <div>
-                <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-800 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <button onClick={handleSubmit} type="button" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-800 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   Register
                 </button>
               </div>

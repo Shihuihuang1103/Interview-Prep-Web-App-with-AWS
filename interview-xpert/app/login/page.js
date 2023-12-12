@@ -13,10 +13,11 @@ const LoginPage = () => {
     event.preventDefault();
     try{
       const userData = await authenticate(username, password);
+      console.log('userRole:', userData.role);
       if(userData.role === 'interviewee'){
         window.location.href = '/interviewee';
       } else if(userData.role === 'interviewer'){
-        window.location.herf = '/interviewer';
+        window.location.href = '/interviewer';
       } else{
         console.error('Uknown user type:', userData.Role);
       }
