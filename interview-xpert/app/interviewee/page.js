@@ -2,9 +2,14 @@
 import React from 'react';
 import { useState } from 'react';
 import NavInterviewee from '@/app/components/navInterviewee';
+import UserPool from '../services/UserPool';
 
 //book interview page for interviewee
 const BookInterview = () => {
+
+    const user = UserPool.getCurrentUser();
+    const username = user.getUsername();
+    console.log('Current user username:', username);
 
     const [focus, setFocus] = useState('');
     const [date, setDate] = useState('');

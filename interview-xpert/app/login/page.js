@@ -12,25 +12,19 @@ const LoginPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try{
-      await authenticate(username, password);
-      window.location.href = '/interviewee';
+      const userData = await authenticate(username, password);
+      if(userData.role === 'interviewee'){
+        window.location.href = '/interviewee';
+      } else if(userData.role === 'interviewer'){
+        window.location.herf = '/interviewer';
+      } else{
+        console.error('Uknown user type:', userData.Role);
+      }
+      
     } catch(err){
-      console.error(er);
+      console.error(err);
       alert('Login failed. Please check your username and password.');
     }
-    // Implement your login logic here
-    // if (username === "interviewee" && password === "123") {
-    //   // Redirect to the interviewee home page
-    //   window.location.href = '/interviewee';
-    //   console.log(username, password);
-    // }
-    // else if(username === "interviewer" && password === "123"){
-    //   window.location.href = '/interviewer';
-    //   console.log(username, password);
-    // }
-    // else{
-    //   console.error('Invalid Credentials')
-    // }
   };
 
   return (

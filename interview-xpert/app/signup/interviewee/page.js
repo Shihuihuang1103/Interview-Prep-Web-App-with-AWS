@@ -24,10 +24,10 @@ const SignupInterviewee = () => {
 
     event.preventDefault();
     const attributeList = [];
-    attributeList.push({
-      Name:'email',
-      Value:email,
-    })
+    attributeList.push(
+      {Name:'email',Value:email},
+      {Name:'custom:Role', Value:'interviewee'}
+    )
     UserPool.signUp(username,password,attributeList,null, (err, data)=>{
        if(err){
         console.error(err);

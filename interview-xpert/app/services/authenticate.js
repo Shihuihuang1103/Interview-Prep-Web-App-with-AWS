@@ -11,13 +11,29 @@ export const authenticate=(Username,Password)=>{
 
         const authDetails= new AuthenticationDetails({
             Username:Username,
-            Password
+            Password:Password
         });
 
         user.authenticateUser(authDetails,{
-            onSuccess:(result)=>{
+            onSuccess:(session)=>{
+                const accessToken = session.getAccessToken().getJwtToken();
+                console.log('Access Token:', accessToken);
+
+                user.getUserAttributes((err, attributes) => {
+                    if (err){
+                        console.error('Error fetching user attributes');
+                        reject(err);
+                    } else{
+                        const userData = {
+                            username: user.getUsername(),
+                            email: attributes.find(attr => attr.getName() === 'email').getValue(),
+                            role: attributes.find(attr => attr.getName() === 'custom:Role').getValue()
+                        }
+                        resolve(userData);
+                    }
+                })
                 console.log("login successful");
-                resolve(result);
+                //resolve(result);
             },
             onFailure:(err)=>{
                 console.log("login failed",err);
