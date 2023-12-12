@@ -33,7 +33,7 @@ const SignupInterviewee = () => {
         console.error(err);
        } 
        console.log(data);
-       alert('Account created successfully');
+       alert('Account created successfully. Redirecting to login page...');
        push('/login');
     });
 

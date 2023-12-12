@@ -2,6 +2,7 @@
 "use client";
 import { useState } from 'react';
 import NavHome from '@/app/components/navHome';
+import { authenticate } from '../services/authenticate';
 
 //Login Page
 const LoginPage = () => {
@@ -10,19 +11,26 @@ const LoginPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // Implement your login logic here
-    if (username === "interviewee" && password === "123") {
-      // Redirect to the interviewee home page
+    try{
+      await authenticate(username, password);
       window.location.href = '/interviewee';
-      console.log(username, password);
+    } catch(err){
+      console.error(er);
+      alert('Login failed. Please check your username and password.');
     }
-    else if(username === "interviewer" && password === "123"){
-      window.location.href = '/interviewer';
-      console.log(username, password);
-    }
-    else{
-      console.error('Invalid Credentials')
-    }
+    // Implement your login logic here
+    // if (username === "interviewee" && password === "123") {
+    //   // Redirect to the interviewee home page
+    //   window.location.href = '/interviewee';
+    //   console.log(username, password);
+    // }
+    // else if(username === "interviewer" && password === "123"){
+    //   window.location.href = '/interviewer';
+    //   console.log(username, password);
+    // }
+    // else{
+    //   console.error('Invalid Credentials')
+    // }
   };
 
   return (
