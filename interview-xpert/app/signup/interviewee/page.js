@@ -1,10 +1,13 @@
 "use client";
 import React from 'react';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import NavHome from '@/app/components/navHome';
+import UserPool from "@/app/services/UserPool";
 
 const SignupInterviewee = () => {
-
+  const { push } = useRouter();
+  //const router = useRouter();
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
   const [username, setUsername] = useState('');
@@ -18,7 +21,21 @@ const SignupInterviewee = () => {
 
 
   const handleSubmit = async (event) => {
+
     event.preventDefault();
+    const attributeList = [];
+    attributeList.push({
+      Name:'email',
+      Value:email,
+    })
+    UserPool.signUp(username,password,attributeList,null, (err, data)=>{
+       if(err){
+        console.error(err);
+       } 
+       console.log(data);
+       alert('Account created successfully');
+       push('/login');
+    });
 
     const intervieweeUser = {
       firstname,
@@ -110,7 +127,7 @@ const SignupInterviewee = () => {
                   Password:
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   id="password"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                   style={{ paddingLeft: '5px' }} 
