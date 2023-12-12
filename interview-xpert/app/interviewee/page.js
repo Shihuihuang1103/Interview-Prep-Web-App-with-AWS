@@ -16,6 +16,7 @@ const BookInterview = () => {
     const [time, setTime] = useState('');
     const [duration, setDuration] = useState('');
 
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         
@@ -23,7 +24,7 @@ const BookInterview = () => {
            focus,
            date,
            time,
-           duration
+           duration, 
         };
 
         const apiGatewayUrl = 'https://6lpyoj0hu8.execute-api.us-east-1.amazonaws.com/test/scheduleInterviews/${username}';
