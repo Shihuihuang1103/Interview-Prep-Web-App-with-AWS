@@ -1,6 +1,13 @@
 import Link from 'next/link';
+import { logout } from '../services/authenticate';
+
 
 const NavInterviewer = () => {
+
+  const handleLogout = () => {
+    logout();
+  }
+  
     return (
       <nav className="bg-blue-800">
         <div className="max-w-6xl mx-auto px-4">
@@ -22,7 +29,8 @@ const NavInterviewer = () => {
             {/* Secondary Nav */}
             <div className="hidden md:flex items-center space-x-1">
               <Link href="/interviewer/profile" className="py-2 px-3 bg-blue-700 text-white rounded mr-2">Profile</Link>
-        
+              <button onClick={handleLogout} className="py-2 px-3 bg-blue-700 text-white rounded mr-2">Logout</button>
+
             </div>
            
           </div>
