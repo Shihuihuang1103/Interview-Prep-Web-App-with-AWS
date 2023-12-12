@@ -8,7 +8,9 @@ import UserPool from '../services/UserPool';
 const BookInterview = () => {
 
     const user = UserPool.getCurrentUser();
-    const username = user.getUsername();
+    //const username = user.getUsername();
+    const username = user ? user.getUsername() : null;
+
     console.log('Current user username:', username);
 
     const [focus, setFocus] = useState('');
@@ -27,7 +29,7 @@ const BookInterview = () => {
            duration, 
         };
 
-        const apiGatewayUrl = 'https://6lpyoj0hu8.execute-api.us-east-1.amazonaws.com/test/scheduleInterviews/${username}';
+        const apiGatewayUrl = `https://6lpyoj0hu8.execute-api.us-east-1.amazonaws.com/test/scheduleInterviews/${username}`;
 
         try{
         const response = await fetch(apiGatewayUrl, {
