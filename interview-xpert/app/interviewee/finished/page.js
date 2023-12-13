@@ -1,12 +1,19 @@
 "use client";
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import NavInterviewee from '@/app/components/navInterviewee';
 import UserPool from '@/app/services/UserPool';
 
 
 const FinishedInterviews = () => {
+    const { push } = useRouter();
     const[interviews, setInterviews] = useState([]);
+
+    const handleFeedback = (interviewId) => {
+        push(`interviewee/feedback?interviewId=${interviewId}`);
+        console.log(`Feedback for interview ${interviewId}`);
+    }
 
     useEffect(()=> {
         const fetchInterviews = async() =>{
@@ -16,7 +23,7 @@ const FinishedInterviews = () => {
                 if(user){
                     const username = user.getUsername();
                     console.log('current user:', username);
-                    const apiGatewayUrl = `https://6lpyoj0hu8.execute-api.us-east-1.amazonaws.com/test/getinterviews/${username}`;
+                    const apiGatewayUrl = `https://6lpyoj0hu8.execute-api.us-east-1.amazonaws.com/test/getInterviews/${username}`;
 
                     const response = await fetch(apiGatewayUrl);
                     if(!response.ok){
@@ -52,6 +59,9 @@ const FinishedInterviews = () => {
                             <p>Date: {interview.date}</p>
                             <p>Time: {interview.time}</p>
                             <p>Duration: {interview.duration} </p>
+                            <button onClick={() => handleFeedback(interview.id)}>
+                             Give Feedback
+                            </button>
                             </li>
                         ))}
                         </ul>

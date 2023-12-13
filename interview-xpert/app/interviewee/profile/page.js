@@ -16,7 +16,7 @@ const IntervieweeProfile = () => {
          if(user) {
             const username = user.getUsername();
             console.log("current user:", username);
-            const apiGatewayUrl = `https://6lpyoj0hu8.execute-api.us-east-1.amazonaws.com/test/getinterviewees/${username}`;
+            const apiGatewayUrl = `https://6lpyoj0hu8.execute-api.us-east-1.amazonaws.com/test/getInterviewees/${username}`;
 
             try{
                 const response = await fetch(apiGatewayUrl);
@@ -24,6 +24,7 @@ const IntervieweeProfile = () => {
                     throw new Error('Failed to fetch user profile');
                 }
                 const data = await response.json();
+                console.log(data);
                 setUserAttributes(data);
             }catch(error){
                 console.error('Error fetching user profile:', error);
