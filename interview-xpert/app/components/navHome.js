@@ -23,6 +23,8 @@ const NavHome = () => {
               <Link href="/login" className="py-2 px-3 bg-blue-700 text-white rounded mr-2">Login</Link>
               
               <Link href="/signup" className="py-2 px-3 bg-blue-700 text-white rounded">Sign Up</Link>
+
+              <Link href="/verification" className="py-2 px-3 bg-blue-700 text-white rounded">verification</Link>
             </div>
            
           </div>
