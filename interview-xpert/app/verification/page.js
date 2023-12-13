@@ -3,7 +3,7 @@ import { useState } from 'react';
 import NavHome from '@/app/components/navHome';
 import { authenticate } from '../services/confirmSignUp';
 
-const verification = () => {
+const Verification = () => {
     const [username, setUsername] = useState('');
     const [verificationCode, setVerificationCode] = useState('');
   
@@ -86,4 +86,4 @@ const verification = () => {
     );
   };
   
-  export default verification;
+  export default Verification;

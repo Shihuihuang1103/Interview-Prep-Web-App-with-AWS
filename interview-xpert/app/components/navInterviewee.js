@@ -21,6 +21,8 @@ const NavInterviewee = () => {
               <div className="hidden md:flex items-center space-x-1">
                 <Link href="/interviewee" className="py-5 px-3 text-white">Get Interviewed</Link>
                 <Link href="/interviewee/scheduled" className="py-5 px-3 text-white">Upcoming Interviews</Link>
+                <Link href="/interviewee/finished" className="py-5 px-3 text-white">Completed Sessions</Link>
+
               </div>
             </div>
             {/* Secondary Nav */}
