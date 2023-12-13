@@ -1,5 +1,5 @@
 import { CognitoUser } from 'amazon-cognito-identity-js';
-
+import AWS from 'aws-sdk';
 //获取email
 
 
