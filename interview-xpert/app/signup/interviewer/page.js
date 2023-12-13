@@ -39,8 +39,6 @@ const SignupInterviewer = () => {
         console.error(err);
        } 
        console.log(data);
-       alert('Account created successfully. Redirecting to login page...');
-       push('/login');
     });
 
     const interviewerUser = {
@@ -74,8 +72,12 @@ const SignupInterviewer = () => {
 
       const data = await response.json();
       console.log("Registration successful:", data);
+      alert('Account created successfully. Redirecting to login page...');
+      push('/login');
     } catch(error){
       console.error('Registration failed', error);
+      alert('Account created failed. Please try again...');
+
     }
   };
 
