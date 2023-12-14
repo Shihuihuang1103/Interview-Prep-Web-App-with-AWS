@@ -19,8 +19,9 @@ const FinishedInterviews = () => {
 
                 if(user){
                     const username = user.getUsername();
+                    const userID = username;
                     console.log('current user:', username);
-                    const apiGatewayUrl = `https://6lpyoj0hu8.execute-api.us-east-1.amazonaws.com/test/getInterviews/${username}`;
+                    const apiGatewayUrl = `https://6lpyoj0hu8.execute-api.us-east-1.amazonaws.com/test/getInterviews/${userID}`;
 
                     const response = await fetch(apiGatewayUrl);
                     if(!response.ok){

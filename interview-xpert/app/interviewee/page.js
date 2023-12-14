@@ -68,9 +68,12 @@ const BookInterview = () => {
                           id="focus" 
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           value = {focus}
-                          onChange={(e)=>setFocus(e.target.value)}
+                          onChange={(e)=>{
+                            setFocus(e.target.value);
+                            console.log("Focus:", focus);
+                        }}
                         >
-    
+                        <option value="">Please select the focus:</option>
                         <option value="Data Structure and Algorithm">Data Structure and Algorithm</option>
                         <option value="System Design">System Design</option>
                         <option value="Behavioral Questions">Behavioral Questions</option>
@@ -108,8 +111,12 @@ const BookInterview = () => {
                           id="duration" 
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           value = {duration}
-                          onChange={(e)=>setDuration(e.target.value)}
+                          onChange={(e)=>{
+                            setDuration(e.target.value);
+                            console.log("Duration:", duration);
+                        }}
                         >
+                        <option value="">Please select time:</option>
                         <option value="30">30 minutes</option>
                         <option value="60">60 minutes</option>
                         <option value="90">90 minutes</option>

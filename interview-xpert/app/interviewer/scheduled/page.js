@@ -12,7 +12,7 @@ const ScheduledInterviews = () => {
             <div className="flex min-h-screen bg-gray-50 justify-left items-center">
                 <div className="p-6 max-w-sm w-full bg-blue-50 shadow-md rounded-md">
                     <h1 className='text-center font-bold text-2xl text-blue-800'> 
-                        Your upcoming interviews:
+                        Completed sessions:
                     </h1>
                 </div>
             </div>
