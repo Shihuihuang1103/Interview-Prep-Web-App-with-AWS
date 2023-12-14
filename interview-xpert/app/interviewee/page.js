@@ -47,6 +47,7 @@ const BookInterview = () => {
 
         const data = await response.json();
         console.log("Interview successfully scheduled", data);
+        alert("You have successfully scheduled an interview! We will notify you when we match you with an interviewer based on your request.");
         } catch(error){
         console.error('Interview schedule failed', error);
         }
