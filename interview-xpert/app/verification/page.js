@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import NavHome from '@/app/components/navHome';
-import { authenticate } from '../services/confirmSignUp';
+import { confirmSignUp } from '../services/confirmSignUp'; 
 
 const Verification = () => {
     const [username, setUsername] = useState('');
@@ -11,9 +11,7 @@ const Verification = () => {
       event.preventDefault();
       try {
         // service add here
-
-
-        await verifyEmailByUsername(username, verificationCode);
+        await confirmSignUp(username, verificationCode);
         alert('Email verification successful. You can now access your account.');
       } catch (err) {
         console.error(err);
