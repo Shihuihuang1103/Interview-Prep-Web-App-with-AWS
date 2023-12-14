@@ -1,4 +1,5 @@
 "use client";
+import React from 'react';
 import { useState } from 'react';
 import NavHome from '@/app/components/navHome';
 import { confirmSignUp } from '../services/confirmSignUp'; 
