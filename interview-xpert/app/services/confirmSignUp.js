@@ -1,4 +1,4 @@
-import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
+import { CognitoUser } from "amazon-cognito-identity-js";
 import UserPool from "./UserPool";
 
 const confirmSignUp = (username, code) => {
