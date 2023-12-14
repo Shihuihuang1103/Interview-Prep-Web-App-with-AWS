@@ -1,19 +1,19 @@
 "use client";
+import React from 'react';
 import { useState } from 'react';
 import NavHome from '@/app/components/navHome';
-import { authenticate } from '../services/confirmSignUp';
+import { confirmSignUp } from '../services/confirmSignUp'; 
+import { useRouter } from 'next/navigation';
 
 const Verification = () => {
+    const { push } = useRouter();
     const [username, setUsername] = useState('');
     const [verificationCode, setVerificationCode] = useState('');
   
     const handleSubmit = async (event) => {
       event.preventDefault();
       try {
-        // service add here
-
-
-        await verifyEmailByUsername(username, verificationCode);
+        await confirmSignUp(username, verificationCode);
         alert('Email verification successful. You can now access your account.');
       } catch (err) {
         console.error(err);
@@ -22,7 +22,8 @@ const Verification = () => {
     };
 
     const handleSkipForNow = () => {
-        //添加skip的跳转;
+        push('/login');
+        alert('Skipped email verification, please remember to complete verification later.');
       };
   
     return (
