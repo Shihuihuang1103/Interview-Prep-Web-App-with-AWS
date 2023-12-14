@@ -24,7 +24,8 @@ const InterviewerProfile = () => {
                    throw new Error('Failed to fetch user profile');
                }
                const data = await response.json();
-               setUserAttributes(data);
+               console.log("Received Data:", data.body);
+               setUserAttributes(JSON.parse(data.body));
            }catch(error){
                console.error('Error fetching user profile:', error);
            }
@@ -41,22 +42,22 @@ const InterviewerProfile = () => {
                     <h1 className='text-center font-bold text-2xl text-blue-800'> 
                         My Profile:
                     </h1>
-                    {userAttributes && (
+                    {userAttributes && userAttributes.interviewerProfile &&(
                         <div>
-                            <p>First name: {userAttributes.firstname}</p>
-                            <p>Last name: {userAttributes.lastname}</p>
-                            <p>Username: {userAttributes.username}</p>
-                            <p>Email: {userAttributes.email}</p>
-                            <p>Company: {userAttributes.company}</p>
-                            <p>Role: {userAttributes.role}</p>
-                            <p>Skills:</p>
+                            <p className="text-md mb-2">First name: {userAttributes.interviewerProfile.firstname}</p>
+                            <p className="text-md mb-2">Last name: {userAttributes.interviewerProfile.lastname}</p>
+                            <p className="text-md mb-2">Username: {userAttributes.interviewerProfile.username}</p>
+                            <p className="text-md mb-2">Email: {userAttributes.interviewerProfile.email}</p>
+                            <p className="text-md mb-2">Company: {userAttributes.interviewerProfile.company}</p>
+                            <p className="text-md mb-2">Role: {userAttributes.interviewerProfile.role}</p>
+                            <p className="text-md mb-2">Skills:</p>
                                 <ul>
-                                {userAttributes.skills && userAttributes.skills.map((skill, index) => (
+                                {userAttributes.skills && userAttributes.interviewerProfile.skills.map((skill, index) => (
                                     <li key={index}>{skill}</li>
                                 ))}
                                 </ul>
-                            <p>Year of Experience: {userAttributes.yoe}</p>
-                            <p>About: {userAttributes.bio}</p>
+                            <p>Year of Experience: {userAttributes.interviewerProfile.yoe}</p>
+                            <p>About: {userAttributes.interviewerProfile.bio}</p>
                         </div>
                    )} 
                 </div>
