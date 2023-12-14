@@ -42,6 +42,7 @@ const InterviewerProfile = () => {
                     <h1 className='text-center font-bold text-2xl text-blue-800'> 
                         My Profile:
                     </h1>
+                    <br/>
                     {userAttributes && userAttributes.interviewerProfile &&(
                         <div>
                             <p className="text-md mb-2">First name: {userAttributes.interviewerProfile.firstname}</p>

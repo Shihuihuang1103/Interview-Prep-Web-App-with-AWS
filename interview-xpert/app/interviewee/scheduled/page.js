@@ -75,9 +75,9 @@ const ScheduledInterviews = () => {
                         {interviews.map(interview => (
                             <li key={interview.id} className="mb-6 border-b pb-4">
                             <p>Interviewer: {interview.interviewerName}</p>
-                            <p>Focus: {interview.focus}</p>
                             <p>Date: {interview.date}</p>
                             <p>Time: {interview.time}</p>
+                            <p>Focus: {interview.focus}</p>
                             <p>Duration: {interview.duration} </p>
                             <p>Meeting Detail: {interview.detail} </p>
                             </li>
