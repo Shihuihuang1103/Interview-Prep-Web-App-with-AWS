@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import NavInterviewee from '@/app/components/navInterviewee';
 import UserPool from '@/app/services/UserPool';
 
@@ -8,21 +8,47 @@ import UserPool from '@/app/services/UserPool';
 const FinishedInterviews = () => {
     const[interviews, setInterviews] = useState([]);
     const [showFeedbackForm, setShowFeedbackForm] = useState(false);
-    const [selectedInterviewId, setSelectedInterviewId] = useState(null);
+    const selectedInterviewIdRef = useRef(null);
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState('');
 
     const handleFeedback = (interviewId) => {
         setShowFeedbackForm(true);
-        setSelectedInterviewId(interviewId);
+        selectedInterviewIdRef.current = interviewId;
       };
     
-    const handleSubmitFeedback = () => {
-        //implement logit to submit feedback
-        setShowFeedbackForm(false);
-        setSelectedInterviewId(null);
-        setRating(0);
-        setComment('');
+    const handleSubmitFeedback = async() => {
+        try{
+          const sessionID = selectedInterviewIdRef.current;
+          const feedbackData = {
+            sessionID,
+            rating,
+            comments: comment,
+            submissionDate: new Date().toISOString(),
+          };
+          console.log("feedbackDate:", feedbackData);
+          const apiGatewayUrl = `https://6lpyoj0hu8.execute-api.us-east-1.amazonaws.com/test/feedback`;
+          const response = await fetch(apiGatewayUrl,{
+            method: 'POST',
+            headers:{
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(feedbackData),
+          });
+          
+          if(!response.ok){
+            throw new Error('Failed to submit feedback');
+          }
+          alert("You have successfully submiited the feedback.")
+          console.log('Feedback submitted successfully');
+        } catch (error){
+          console.error('Error submitting feedback:', error);
+        } finally{
+          setShowFeedbackForm(false);
+          selectedInterviewIdRef.current = null;
+          setRating(0);
+          setComment('');
+        }
     };
 
     useEffect(()=> {
@@ -92,16 +118,15 @@ const FinishedInterviews = () => {
                     {interviews.length > 0 ? (
                         <ul>
                         {interviews.map(interview => (
-                            <li key={interview.id} className="mb-6 border-b pb-4">
+                            <li key={interview.sessionID} className="mb-6 border-b pb-4">
                             <p>Date: {interview.date}</p>
                             <p>Time: {formatTime(interview.time)}</p>
                             <p>Interviewer: {interview.interviewerName}</p>
                             <p>Focus: {interview.focus}</p>
-                            
                             <p>Duration: {interview.duration} </p>
                             <br/>
                             <button 
-                            onClick={() => handleFeedback(interview.id)} 
+                            onClick={() => handleFeedback(interview.sessionID)} 
                             className="w-full text-white bg-blue-800 hover:bg-blue-700 focus:ring-4 focus:ring-blue-800 font-medium rounded-md text-sm px-5 py-2.5 text-center">
                             Give Feedback
                             </button>
