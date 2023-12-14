@@ -1,7 +1,9 @@
 "use client";
+import React from 'react';
 import { useState } from 'react';
 import NavHome from '@/app/components/navHome';
 import { confirmSignUp } from '../services/confirmSignUp'; 
+import Link from 'next/link';
 
 const Verification = () => {
     const [username, setUsername] = useState('');
@@ -19,10 +21,6 @@ const Verification = () => {
       }
     };
 
-    const handleSkipForNow = () => {
-        //添加skip的跳转;
-      };
-  
     return (
       <div className="flex flex-col min-h-screen">
         <NavHome />
@@ -68,13 +66,11 @@ const Verification = () => {
                 </button>
 
                 <div className="mt-4 text-center">
-                    <button
-                        type="button"
-                        onClick={handleSkipForNow}
-                        className="text-blue-800 hover:underline text-sm"
-                    >
-                        Skip for Now
-                    </button>
+                <Link href="/login">
+                  <button className="text-blue-800 hover:underline text-sm">
+                    Skip for Now
+                  </button>
+                  </Link>
                 </div>
               </div>
             </form>
