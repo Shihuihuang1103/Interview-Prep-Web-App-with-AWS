@@ -1,18 +1,17 @@
 "use client";
-import React from 'react';
 import { useState } from 'react';
 import NavHome from '@/app/components/navHome';
 import { confirmSignUp } from '../services/confirmSignUp'; 
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const Verification = () => {
+    const { push } = useRouter();
     const [username, setUsername] = useState('');
     const [verificationCode, setVerificationCode] = useState('');
   
     const handleSubmit = async (event) => {
       event.preventDefault();
       try {
-        // service add here
         await confirmSignUp(username, verificationCode);
         alert('Email verification successful. You can now access your account.');
       } catch (err) {
@@ -21,6 +20,11 @@ const Verification = () => {
       }
     };
 
+    const handleSkipForNow = () => {
+        push('/login');
+        alert('Skipped email verification, please remember to complete verification later.');
+      };
+  
     return (
       <div className="flex flex-col min-h-screen">
         <NavHome />
@@ -66,11 +70,13 @@ const Verification = () => {
                 </button>
 
                 <div className="mt-4 text-center">
-                <Link href="/login">
-                  <button className="text-blue-800 hover:underline text-sm">
-                    Skip for Now
-                  </button>
-                  </Link>
+                    <button
+                        type="button"
+                        onClick={handleSkipForNow}
+                        className="text-blue-800 hover:underline text-sm"
+                    >
+                        Skip for Now
+                    </button>
                 </div>
               </div>
             </form>
