@@ -15,8 +15,10 @@ const IntervieweeProfile = () => {
 
          if(user) {
             const username = user.getUsername();
+            const userID = username;
             console.log("current user:", username);
-            const apiGatewayUrl = `https://6lpyoj0hu8.execute-api.us-east-1.amazonaws.com/test/getInterviewees/${username}`;
+            const apiGatewayUrl = `https://6lpyoj0hu8.execute-api.us-east-1.amazonaws.com/test/getInterviewees/${userID}`;
+            console.log("API Gateway URL:", apiGatewayUrl);
 
             try{
                 const response = await fetch(apiGatewayUrl);

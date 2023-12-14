@@ -50,7 +50,7 @@ const InterviewerProfile = () => {
                             <p>Role: {userAttributes.role}</p>
                             <p>Skills:</p>
                                 <ul>
-                                {userAttributes.skills.map((skill, index) => (
+                                {userAttributes.skills && userAttributes.skills.map((skill, index) => (
                                     <li key={index}>{skill}</li>
                                 ))}
                                 </ul>

@@ -1,17 +1,14 @@
 "use client";
 import React from 'react';
 import { useState, useEffect } from 'react';
-//import { useRouter } from 'next/navigation';
 import NavInterviewee from '@/app/components/navInterviewee';
 import UserPool from '@/app/services/UserPool';
 
 
 const FinishedInterviews = () => {
-    //const { push } = useRouter();
     const[interviews, setInterviews] = useState([]);
 
     const handleFeedback = (interviewId) => {
-        //push(`interviewee/feedback?interviewId=${interviewId}`);
         console.log(`Feedback for interview ${interviewId}`);
     }
 
