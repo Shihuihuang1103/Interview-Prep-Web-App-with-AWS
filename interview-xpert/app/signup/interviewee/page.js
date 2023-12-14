@@ -65,8 +65,8 @@ const SignupInterviewee = () => {
 
       const data = await response.json();
       console.log("Registration successful:", data);
-      alert('Account created successfully. Redirecting to login page...');
-      push('/login');
+      alert('Account created successfully. Redirecting to verification page...');
+      push('/verification');
     } catch(error){
       console.error('Registration failed', error);
       alert('Account created failed. Please try again.');

@@ -10,7 +10,7 @@ const confirmSignUp = (username, code) => {
 
     const cognitoUser = new CognitoUser(userData);
 
-    cognitoUser.confirmSignUp(code, true, (err, result) => {
+    cognitoUser.confirmRegistration(code, true, (err, result) => {
       if (err) {
         console.error(err);
         reject('Error confirming sign up');
