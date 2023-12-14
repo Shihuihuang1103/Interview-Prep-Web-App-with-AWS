@@ -58,6 +58,20 @@ const UpcomingInterviews = () => {
         };
         fetchInterviews();
     },[]);
+
+    function formatTime(secondsSinceMidnight){
+        const interviewTime = new Date(0);
+        interviewTime.setSeconds(secondsSinceMidnight);
+        const hours = interviewTime.getUTCHours().toString().padStart(2, '0');
+        const minutes = interviewTime.getUTCMinutes().toString().padStart(2, '0');
+        let apm = "";
+        if(hours > 12){
+            apm = "PM";
+        } else{
+            apm = "AM";
+        }
+        return `${hours}:${minutes} ${apm}`;
+      }
     
       return (
         <div className="flex flex-col min-h-screen">
@@ -75,7 +89,7 @@ const UpcomingInterviews = () => {
                         {interviews.map(interview => (
                             <li key={interview.id} className="mb-6 border-b pb-4">
                             <p>Date: {interview.date}</p>
-                            <p>Time: {interview.time}</p>
+                            <p>Time: {formatTime(interview.time)}</p>
                             <p>Interviewer: {interview.interviewerName}</p>
                             <p>Focus: {interview.focus}</p>
                             <p>Duration: {interview.duration} </p>
