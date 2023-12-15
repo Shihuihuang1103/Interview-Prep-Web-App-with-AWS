@@ -92,7 +92,7 @@ const UpcomingInterviews = () => {
                             <p className="text-md mb-2">Time: {formatTime(interview.time)}</p>
                             <p className="text-md mb-2">Interviewer: {interview.interviewerName}</p>
                             <p className="text-md mb-2">Focus: {interview.focus}</p>
-                            <p className="text-md mb-2">Duration: {interview.duration} </p>
+                            <p className="text-md mb-2">Duration: {interview.duration} minutes</p>
                             {/* <p>Meeting Detail: {interview.detail} </p> */}
                             </li>
                         ))}

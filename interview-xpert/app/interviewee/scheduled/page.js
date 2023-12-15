@@ -91,7 +91,7 @@ const ScheduledInterviews = () => {
                             <p>Time: {formatTime(interview.time)}</p> 
                             <p>Interviewer: {interview.interviewerName}</p>                          
                             <p>Focus: {interview.focus}</p>
-                            <p>Duration: {interview.duration} </p>
+                            <p>Duration: {interview.duration} minutes</p>
                             <p>Meeting Detail: {interview.detail} </p>
                             </li>
                         ))}
