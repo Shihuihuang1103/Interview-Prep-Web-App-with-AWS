@@ -22,7 +22,7 @@ const NavInterviewer = () => {
               {/* Primary Nav */}
               <div className="hidden md:flex items-center space-x-1">
                 <Link href="/interviewer" className="py-5 px-3 text-white">Upcoming Interviews</Link>
-                <Link href="/interviewer/scheduled" className="py-5 px-3 text-white">Complete Sessions</Link>
+                <Link href="/interviewer/scheduled" className="py-5 px-3 text-white">Completed Sessions</Link>
                 <Link href="/interviewer/feedback" className="py-5 px-3 text-white">Feedback</Link>
               </div>
             </div>
