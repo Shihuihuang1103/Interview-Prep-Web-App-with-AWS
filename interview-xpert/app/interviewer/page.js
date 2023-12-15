@@ -88,11 +88,11 @@ const UpcomingInterviews = () => {
                         <br/>
                         {interviews.map(interview => (
                             <li key={interview.sessionID} className="mb-6 border-b pb-4">
-                            <p>Date: {interview.date}</p>
-                            <p>Time: {formatTime(interview.time)}</p>
-                            <p>Interviewer: {interview.interviewerName}</p>
-                            <p>Focus: {interview.focus}</p>
-                            <p>Duration: {interview.duration} </p>
+                            <p className="text-md mb-2">Date: {interview.date}</p>
+                            <p className="text-md mb-2">Time: {formatTime(interview.time)}</p>
+                            <p className="text-md mb-2">Interviewer: {interview.interviewerName}</p>
+                            <p className="text-md mb-2">Focus: {interview.focus}</p>
+                            <p className="text-md mb-2">Duration: {interview.duration} </p>
                             {/* <p>Meeting Detail: {interview.detail} </p> */}
                             </li>
                         ))}

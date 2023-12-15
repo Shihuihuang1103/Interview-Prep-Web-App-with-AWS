@@ -24,8 +24,9 @@ const ScheduledInterviews = () => {
                     }
                     const data = await response.json();
                     console.log(data.body);
+                    
                     const dataBody = JSON.parse(data.body);
-
+                    
                     if(Array.isArray(dataBody)){
                         const upcomingInterviews = dataBody.filter(
                         interview => {
@@ -88,11 +89,11 @@ const ScheduledInterviews = () => {
                         <br/>
                         {interviews.map(interview => (
                             <li key={interview.sessionID} className="mb-6 border-b pb-4">
-                            <p>Date: {interview.date}</p>
-                            <p>Time: {formatTime(interview.time)}</p>
-                            <p>Interviewer: {interview.interviewerName}</p>
-                            <p>Focus: {interview.focus}</p>
-                            <p>Duration: {interview.duration} </p>
+                            <p className="text-md mb-2">Date: {interview.date}</p>
+                            <p className="text-md mb-2">Time: {formatTime(interview.time)}</p>
+                            <p className="text-md mb-2">Interviewer: {interview.interviewerName}</p>
+                            <p className="text-md mb-2">Focus: {interview.focus}</p>
+                            <p className="text-md mb-2">Duration: {interview.duration} </p>
                             </li>
                         ))}
                         </ul>
