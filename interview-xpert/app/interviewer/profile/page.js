@@ -38,7 +38,7 @@ const InterviewerProfile = () => {
         <div className="flex flex-col min-h-screen">
             <NavInterviewer />
             <div className="flex min-h-screen bg-gray-50 justify-left items-center">
-                <div className="p-6 max-w-sm w-full bg-blue-50 shadow-md rounded-md">
+                <div className="p-6 max-w-xl w-full bg-blue-50 shadow-md rounded-md">
                     <h1 className='text-center font-bold text-2xl text-blue-800'> 
                         My Profile:
                     </h1>
@@ -49,9 +49,9 @@ const InterviewerProfile = () => {
                             <p className="text-md mb-2">Last name: {userAttributes.interviewerProfile.lastname}</p>
                             <p className="text-md mb-2">Username: {userAttributes.interviewerProfile.username}</p>
                             <p className="text-md mb-2">Email: {userAttributes.interviewerProfile.email}</p>
-                            <p className="text-md mb-2">Company: {userAttributes.interviewerProfile.company}</p>
+                            <p className="text-md mb-2">Company: {userAttributes.interviewerProfile.school}</p>
                             <p className="text-md mb-2">Role: {userAttributes.interviewerProfile.role}</p>
-                            <p className="text-md mb-2">Skills:</p>
+                            <p className="text-md mb-2">Skills: {userAttributes.interviewerProfile.spec}</p>
                                 <ul>
                                 {userAttributes.skills && userAttributes.interviewerProfile.skills.map((skill, index) => (
                                     <li key={index}>{skill}</li>

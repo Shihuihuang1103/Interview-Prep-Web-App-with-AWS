@@ -39,7 +39,7 @@ const FinishedInterviews = () => {
           if(!response.ok){
             throw new Error('Failed to submit feedback');
           }
-          alert("You have successfully submiited the feedback.")
+          alert("You have successfully submitted the feedback.")
           console.log('Feedback submitted successfully');
         } catch (error){
           console.error('Error submitting feedback:', error);
@@ -127,7 +127,7 @@ const FinishedInterviews = () => {
                             <br/>
                             <button 
                             onClick={() => handleFeedback(interview.sessionID)} 
-                            className="w-full text-white bg-blue-800 hover:bg-blue-700 focus:ring-4 focus:ring-blue-800 font-medium rounded-md text-sm px-5 py-2.5 text-center">
+                            className="w-6/12 text-white bg-blue-800 hover:bg-blue-700 focus:ring-4 focus:ring-blue-800 font-medium rounded-md text-sm px-5 py-2.5 text-center">
                             Give Feedback
                             </button>
                             </li>
