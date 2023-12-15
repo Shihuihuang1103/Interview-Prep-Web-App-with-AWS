@@ -21,8 +21,39 @@ const BookInterview = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        let interviewerUsername;
         
+        const interviewRequest = {
+            focus,
+        };
+        const apiGatewayOSUrl = `https://6lpyoj0hu8.execute-api.us-east-1.amazonaws.com/test/scheduleInterviews/${username}/os`;
+
+        try{
+            const response = await fetch(apiGatewayOSUrl, {
+                method:'POST',
+                mode:'cors',
+                headers:{
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(interviewRequest),
+            });
+    
+            if(!response.ok){
+                throw new Error('Network response was not ok.');
+            }
+    
+            const data = await response.json();
+            interviewerUsername = JSON.parse(data.body).username;
+
+
+            console.log("Username:", interviewerUsername);
+            } catch(error){
+            console.error('Interview schedule failed', error);
+            }
+
         const interviewSession = {
+           intervieweeName: username,
+           interviewerName: interviewerUsername,
            focus,
            date,
            time,
