@@ -77,8 +77,39 @@ const SignupInterviewer = () => {
     } catch(error){
       console.error('Registration failed', error);
       alert('Account created failed. Please try again...');
-
     }
+
+    const interviewerOSData = {
+      username,
+      skills,
+    };
+    console.log(interviewerOSData);
+    const apiGatewayOSUrl = 'https://6lpyoj0hu8.execute-api.us-east-1.amazonaws.com/test/register/interviewers/os';
+
+    try{
+      const response = await fetch(apiGatewayOSUrl, {
+        method:'POST',
+        mode:'cors',
+        headers:{
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(interviewerOSData),
+      });
+
+      if(!response.ok){
+        throw new Error('Network response was not ok.');
+      }
+
+      const data = await response.json();
+      console.log("Registration successful:", data);
+      alert('Account created successfully. Redirecting to verification page...');
+      push('/verification');
+    } catch(error){
+      console.error('Registration failed', error);
+      alert('Account created failed. Please try again...');
+    }
+
+
   };
 
   return (
