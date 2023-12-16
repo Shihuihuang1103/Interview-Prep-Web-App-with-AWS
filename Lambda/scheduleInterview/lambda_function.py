@@ -12,7 +12,14 @@ def lambda_handler(event, context):
     time = event.get('time')
     duration = event.get('duration')
     detail = "AWS Chime Meeting ID: 3597269999"
-
+    print(intervieweeName)
+    print(interviewerName)
+    print(focus)
+    print(date)
+    print(time)
+    print(duration)
+    print(detail)
+    
     try:
         conn = pymysql.connect(
             host=os.environ['DB_HOST'],
@@ -34,7 +41,7 @@ def lambda_handler(event, context):
             
             sql = """
             INSERT INTO `InterviewSession` (InterviewerID, IntervieweeID, Date, Time, Duration, Focus, Detail)
-            VALUES (%s, %s, %s, %s, %s, %s)
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
             """
             # Decide who is the interviewer and interviewee based on your application logic
             # For now, assuming user_id is the InterviewerID
