@@ -19,4 +19,4 @@ InterviewXpert offers the following key features:
 - Video Streaming: AWS Chime
 
 ## AWS Architecture: 
-	![AWS Architecture](images/architecture.png)
+![AWS Architecture](images/architecture.png)
