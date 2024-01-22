@@ -20,3 +20,11 @@ InterviewXpert offers the following key features:
 
 ## AWS Architecture: 
 ![AWS Architecture](images/architecture.png)
+
+## Database Design:
+![Schema](images/schema.png)
+
+## Work Flow:
+![Authentication](images/authentication.png)
+![Interviewer Interface](images/interviewer.png)
+![Interviewee Interface](images/interviewee.png)
