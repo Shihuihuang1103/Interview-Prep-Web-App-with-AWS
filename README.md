@@ -25,6 +25,18 @@ InterviewXpert offers the following key features:
 ![Schema](images/schema.png)
 
 ## Work Flow:
+### Homepage:
+![Homepage](images/homepage.png)
+
+### Authentication:
 ![Authentication](images/authentication.png)
-![Interviewer Interface](images/interviewer.png)
+
+### Interviewee Interface:
 ![Interviewee Interface](images/interviewee.png)
+
+### Interviewer Interface:
+![Interviewer Interface](images/interviewer.png)
+
+### AWS Chime:
+![Interviewer Interface](images/chime.png)
+
