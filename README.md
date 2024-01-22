@@ -17,3 +17,6 @@ InterviewXpert offers the following key features:
 - Authentication: Cognito
 - Messaging: SQS, SES
 - Video Streaming: AWS Chime
+
+## AWS Architecture: 
+	![AWS Architecture](images/architecture.png)
