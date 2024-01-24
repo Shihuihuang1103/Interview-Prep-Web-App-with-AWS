@@ -24,6 +24,9 @@ InterviewXpert offers the following key features:
 ## Database Design:
 ![Schema](images/schema.png)
 
+## Video Demo:
+[![Demo](https://res.cloudinary.com/marcomontalbano/image/upload/v1706076638/video_to_markdown/images/youtube--Wc6hLauOlFw-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/Wc6hLauOlFw "Demo")
+
 ## Work Flow:
 ### Homepage:
 ![Homepage](images/homepage.png)
